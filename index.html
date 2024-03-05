@@ -80,7 +80,7 @@
                 </p>
                 <div
                     class="flex justify-between gap-2 bg-white rounded-[31px] ps-3 lg:ps-5 pe-2 py-1  text-[#03071280]">
-                    <input id="searchField" type="text" placeholder="search here anything"
+                    <input id="searchField" type="text" placeholder="search your keyword"
                         class="focus:bg-none focus:outline-none w-2/3 lg:w-full">
                     <button
                         class="bg-[#797DFC] font-bold rounded-[32px] text-white text-xs lg:text-lg px-3 lg:px-5 py-2"
@@ -118,11 +118,13 @@
                 and
                 view the results directly within the app. The integrated testing features
                 allow for a streamlined .</p>
-            <!-- Posts card -->
-            <div class="grid gap-6 grid-cols-1 lg:grid-cols-[3fr,2fr]">
-                <div id="postsContainer" class="">
+            <div class="mx-auto text-center mb-8 hidden" id="loadingIcon">
+                <span class="loading loading-spinner text-success w-[30px]"></span>
+            </div>
 
-                </div>
+            <!-- Posts cards -->
+            <div class="grid gap-6 grid-cols-1 lg:grid-cols-[3fr,2fr]">
+                <div id="postsContainer" class=""> </div>
 
                 <!-- read contents -->
                 <div class="font-Mulish bg-[#12132D0D] border rounded-[32px] p-6">

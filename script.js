@@ -3,7 +3,9 @@ const postsContainer = document.getElementById("postsContainer")
 const searchField = document.getElementById("searchField");
 const readCount = document.getElementById("readCount");
 const readContent = document.getElementById("readContent");
+const loadingIcon = document.getElementById("loadingIcon");
 
+// load initial data for All post
 const loadAllPosts = async () => {
     const Data = await fetch("https://openapi.programming-hero.com/api/retro-forum/posts")
     const allPosts = await Data.json();
@@ -12,6 +14,7 @@ const loadAllPosts = async () => {
 
 // create posts by using API data
 const createPost = (allPosts) => {
+    postsContainer.innerHTML = ``
     allPosts.forEach((post) => {
         const postDiv = document.createElement("div")
         postDiv.classList.add("bg-[#F3F3F5]", "rounded-2xl", "px-14", "py-9", "flex", "gap-6", "mb-4");
@@ -85,7 +88,38 @@ const markAsRead = (title, view) => {
     readCount.innerText = parseInt(readCount.innerText) + 1;
 }
 
+// search post and display by search
+const searchPost = async () => {
+    if (searchField.value) {
+        const Data = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchField.value}`)
+        const categoryPosts = await Data.json()
+        if (categoryPosts.posts.length !== 0) {
+            loadingMoment(true)
+            // slow loading for 2 second
+            setTimeout(() => {
+                createPost(categoryPosts.posts)
+                loadingMoment(false)
+            }, 2000);
+            searchField.value = ''
+        }
+        else {
+            alert("try with another keyword")
+        }
+    }
+    else {
+        alert("search field cannot be empty")
+    }
+}
 
+// load data by loading icon when click on the search button
+const loadingMoment = (loadingState) => {
+    if (loadingState) {
+        loadingIcon.classList.remove("hidden")
+    }
+    else {
+        loadingIcon.classList.add("hidden")
+    }
+}
 
 loadLatestPosts();
 loadAllPosts()
