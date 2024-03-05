@@ -17,20 +17,20 @@ const createPost = (allPosts) => {
     postsContainer.innerHTML = ``
     allPosts.forEach((post) => {
         const postDiv = document.createElement("div")
-        postDiv.classList.add("bg-[#F3F3F5]", "rounded-2xl", "px-14", "py-9", "flex", "gap-6", "mb-4");
+        postDiv.classList.add("bg-[#F3F3F5]", "rounded-2xl", "px-4", "py-5", "lg:px-14", "lg:py-9", "flex", "gap-6", "mb-4");
         postDiv.innerHTML = ` 
         <div class="indicator">
             <span class="indicator-item badge badge-${post.isActive ? "success" : "secondary"}"></span>
             <img src="${post.image}" alt="" class="w-16 h-16 rounded-2xl">
         </div>
         <div class="w-full">
-            <p class="font-Inter font-medium text-[#12132DCC] text-sm flex gap-7">
+            <p class="font-Inter font-medium text-[#12132DCC] text-xs lg:text-sm flex gap-7">
                 <span>#${post.category}</span>
                 <span>Author : ${post.author.name}</span>
             </p>
-            <h2 class="font-bold text-[#12132D] mb-2 mt-2">${post.title}</h2>
+            <h2 class="font-bold text-lg text-[#12132D] mb-2 mt-2">${post.title}</h2>
             <p class="font-normal text-[#12132D99] mb-4">${post.description}</p>
-            <div class="flex justify-between">
+            <div class="flex justify-between gap-4">
                 <div class="flex items-center gap-6">
                     <p class="text-[#12132D99]"><i class="fa-solid fa-comment"></i> ${post.comment_count}</p>
                     <p class="text-[#12132D99]"><i class="fa-solid fa-eye"></i> ${post.view_count}</p>
