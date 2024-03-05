@@ -80,7 +80,7 @@
                 </p>
                 <div
                     class="flex justify-between gap-2 bg-white rounded-[31px] ps-3 lg:ps-5 pe-2 py-1  text-[#03071280]">
-                    <input type="text" placeholder="search here anything"
+                    <input id="searchField" type="text" placeholder="search here anything"
                         class="focus:bg-none focus:outline-none w-2/3 lg:w-full">
                     <button
                         class="bg-[#797DFC] font-bold rounded-[32px] text-white text-xs lg:text-lg px-3 lg:px-5 py-2"
@@ -110,6 +110,33 @@
 
     <!-- main part of project -->
     <main>
+        <!-- Our Posts section -->
+        <section class="mt-24">
+            <h1 class="font-Mulish font-black text-4xl text-center text-black mt-3 mb-2">Let’s Discuss</h1>
+            <p class="font-Inter font-normal text-lg text-center text-[#12132D99] mt-3 mb-8 lg:px-60">Yes, you can run
+                unit tests
+                and
+                view the results directly within the app. The integrated testing features
+                allow for a streamlined .</p>
+            <!-- Posts card -->
+            <div class="grid gap-6 grid-cols-1 lg:grid-cols-[3fr,2fr]">
+                <div id="postsContainer" class="">
+
+                </div>
+
+                <!-- read contents -->
+                <div class="font-Mulish bg-[#12132D0D] border rounded-[32px] p-6">
+                    <div class="flex justify-between">
+                        <h2 class="font-bold text-xl text-black">Title</h2>
+                        <p class="font-normal font-Inter text-[#12132D99]"><i
+                                class="fa-solid fa-check-double text-green-500 mr-1"></i>
+                            Mark as read (<span id="readCount">0</span>)</p>
+                    </div>
+                    <div id="readContent"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- forum section -->
         <section
             class="mt-24 flex justify-between md:gap-10 lg:gap-14 items-center bg-[#12132D]  rounded-[31px] font-Mulish px-10 py-7 md:py-9 md:px-14 lg:px-20 lg:py-12">
